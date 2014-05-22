@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Google Analytics Overview Tool</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body><div id="main">
+    <div>
+    <h1>Google Analytics Overview Tool</h1>
+    <p>This tool allows you to run a Google Analytics query across all websites in your GA account. You can build the query parameters using <a href="http://ga-dev-tools.appspot.com/explorer/" target="_blank">Google's own query tool</a> then paste the parameters into this form to run the same query across all accounts.</p>
+    </div>
+    <!-- Form to name the Query -->
+    <div>
+    <form name="qname">
+      <input type="text" name="query-name"> Query Name
+    </form>
+  
+
+    <!-- Main form to input query parameters -->
+    <form name="qform">
+      <input type="text" name="start-date" value="2013-01-01"> Start Date<br />
+      <input type="text" name="end-date" value="2013-12-31"> End Date<br />
+      <input type="text" name="metrics" value="ga:visits"> Metrics<br />
+      <input type="text" name="dimensions" value="ga:medium"> Dimensions<br />
+      <input type="text" name="filters"> Filters<br />
+      <input type="text" name="max-results"> Max results<br />
+      <input type="text" name="output"> Output<br />
+      <!-- <input type="text" name="sampling-level"> Sampling level<br /> -->
+      <input type="text" name="segment"> Segment<br />
+      <input type="text" name="sort"> Sort<br />
+      <input type="text" name="start-index"> Start index<br />
+      <input type="text" name="fields"> Fields<br />
+    </form></div>
+
+    <!-- Form to select which sites to include -->
+    <div>
+    <form name="qfilter">
+      Include the following websites:<br />
+      <input type="checkbox" id="www" value="www" checked="checked">Hotel websites<br />
+      <input type="checkbox" id="internal" value="internal">RedefineBDL sites<br />
+      <input type="checkbox" id="legacy" value="legacy">Legacy websites<br />
+      <input type="checkbox" id="other" value="other">All other analytics views<br />
+    </form>
+
+    <!-- The 2 Buttons for the user to interact with -->
+    <button id="authorize-button" style="visibility: hidden">Authorize</button><br/>
+    <button id="make-api-call-button" style="visibility: hidden">Get Visits</button>
+    <span id="loading" style="visibility:hidden">Loading</span>
+    <a id="csv-link" style="visibility:hidden">Download CSV</a>
+    </div>
+
+    <div>
+    <h6>Built by <a href="http://twitter.com/albertkawmi">@AlbertKawmi</a>. Background photo by <a href="https://www.flickr.com/photos/janospics/2851859649">JanOSpixeles</a> via Flickr Creative Commons.</h6>
+  </div>
+
+</div><!-- end main div -->
+    <!-- These JavaScript files will be created later on in the tutorial -->
+    <script src="GA_auth.js"></script>
+    <script src="GA_overview.js"></script>
+
+    <!-- Load the Client Library. Use the onload parameter to specify a callback function -->
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+  </body>
+</html>

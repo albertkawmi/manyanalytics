@@ -1,0 +1,27 @@
+body {
+	font-family: "Helvetica";
+	background: url("google-analytics-photo.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;   
+}
+
+#main {
+	margin: 0 auto;
+	vertical-align: bottom;
+	text-align: left;
+}
+
+#main > div {
+	width: 250px;
+	background: rgba(255,255,255,0.65);
+	padding: 25px;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 10px;
+	text-align: left;
+	}
+
+h1 {
+	color: rgb(93,49,24);
+}
