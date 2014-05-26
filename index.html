@@ -32,17 +32,9 @@
       <input type="text" name="fields"> Fields<br />
     </form></div>
 
-    <!-- Form to select which sites to include -->
+    <!-- The buttons for user control -->
     <div>
-    <form name="qfilter">
-      Include the following websites:<br />
-      <input type="checkbox" id="www" value="www" checked="checked">Hotel websites<br />
-      <input type="checkbox" id="internal" value="internal">RedefineBDL sites<br />
-      <input type="checkbox" id="legacy" value="legacy">Legacy websites<br />
-      <input type="checkbox" id="other" value="other">All other analytics views<br />
-    </form>
-
-    <!-- The 2 Buttons for the user to interact with -->
+    <button id="clear-form">Clear Form</button><br />
     <button id="authorize-button" style="visibility: hidden">Authorize</button><br/>
     <button id="make-api-call-button" style="visibility: hidden">Get Visits</button>
     <span id="loading" style="visibility:hidden">Loading</span>
