@@ -120,21 +120,21 @@ function storeRows(results) {
 }
 
 function downloadCSV() {
+    //join the CSV rows separated by a newline character
+    var csvString = csvRows.join("\n");
 
-    var csvString = csvRows.join("%0A");
-
+    // create a blob for the CSV file and set the link href to point to that blob
+    var blob = new Blob([csvString], {type: "text/css;charset=utf-8"});
     var a = document.getElementById('csv-link');
-    a.href     = 'data:text/csv;charset=utf-8,' + csvString;
-    a.target   = '_blank';
-    a.download = setFilename();
+    a.href = window.URL.createObjectURL(blob);
+
+    // Set the filename
+    a.download = "GA_" + document.qname["query-name"].value + "_at_" + Date() + ".csv";
+
+    // Hide the 'loading...' animation and show the download link
     document.getElementById('loading').style.visibility = 'hidden';
     document.getElementById('loading').innerHTML = '';
     a.style.visibility = '';
-}
-
-function setFilename(){
-  var queryName = document.qname["query-name"].value;
-  return "GA_" + queryName + "_at_" + Date() + ".csv";
 }
 
 // unused (for console debugging)
