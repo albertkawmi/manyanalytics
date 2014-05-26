@@ -31,8 +31,8 @@ function handleAuthorized() {
   var authorizeButton = document.getElementById('authorize-button');
   var makeApiCallButton = document.getElementById('make-api-call-button');
 
-  makeApiCallButton.style.visibility = '';
-  authorizeButton.style.visibility = 'hidden';
+  makeApiCallButton.style.display = '';
+  authorizeButton.style.display = 'none';
   authorizeButton.style.height = '0px';
   makeApiCallButton.onclick = makeApiCall;
 }
@@ -43,8 +43,8 @@ function handleUnAuthorized() {
   var authorizeButton = document.getElementById('authorize-button');
   var makeApiCallButton = document.getElementById('make-api-call-button');
 
-  makeApiCallButton.style.visibility = 'hidden';
-  authorizeButton.style.visibility = '';
+  makeApiCallButton.style.display = 'none';
+  authorizeButton.style.display = '';
   authorizeButton.onclick = handleAuthClick;
 }
 

@@ -27,11 +27,11 @@ function makeApiCall() {
   loader = null;
 
   // hide download link and show loading animation
-  document.getElementById('csv-link').style.visibility = 'hidden';
+  document.getElementById('csv-link').style.display = 'none';
   document.getElementById('loading').innerHTML = 'Loading';
 
   // show loading text
-  document.getElementById('loading').style.visibility = '';
+  document.getElementById('loading').style.display = 'inline';
   loader = setInterval(loadingDots, 500);
 
   // save form data into global query object
@@ -154,10 +154,10 @@ function downloadCSV() {
     a.download = "GA_" + document.qname["query-name"].value + "_at_" + Date() + ".csv";
 
     // Hide the 'loading...' animation and show the download link
-    document.getElementById('loading').style.visibility = 'hidden';
+    document.getElementById('loading').style.display = 'none';
     document.getElementById('loading').innerHTML = '';
     clearInterval(loader);
-    a.style.visibility = '';
+    a.style.display = 'inline';
 }
 
 // unused (for console debugging)
