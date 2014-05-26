@@ -4,12 +4,35 @@ var firstRow = true;
 var globalQuery = {};
 var queueIndex = 0;
 var queueLength = null;
+var loader = null;
+
+// Clear the form fields
+function clearForm() {
+  document.qname.reset();
+
+  for(var el in document.qform.elements){
+    document.qform[el].value = "";
+    }
+}
 
 // Execute this function when the 'Make API Call' button is clicked
 function makeApiCall() {
+
+  //reset all globals for when we run function again
+  csvRows = [];
+  firstRow = true;
+  globalQuery = {};
+  queueIndex = 0;
+  queueLength = null;
+  loader = null;
+
+  // hide download link and show loading animation
+  document.getElementById('csv-link').style.visibility = 'hidden';
+  document.getElementById('loading').innerHTML = 'Loading';
+
   // show loading text
   document.getElementById('loading').style.visibility = '';
-  setInterval(loadingDots, 500);
+  loader = setInterval(loadingDots, 500);
 
   // save form data into global query object
   globalQuery = queryParams();
@@ -42,7 +65,6 @@ function handleProfiles(results) {
       	for(var i=0; i<results.items.length; i++) {
           itemName = results.items[i].name;
 
-          //////////////////// This line sends out the queries ///////////////////////////
           queueLength ++;
         	setTimeout(queryCoreReportingApi, 100*i, results.items[i].id);
           
@@ -134,6 +156,7 @@ function downloadCSV() {
     // Hide the 'loading...' animation and show the download link
     document.getElementById('loading').style.visibility = 'hidden';
     document.getElementById('loading').innerHTML = '';
+    clearInterval(loader);
     a.style.visibility = '';
 }
 
@@ -160,6 +183,7 @@ function logResults(results) {
     }
 }
 
+// Function to read the input form elements into a query object
 function queryParams() {
 
   // Read all elements in the form into an array
@@ -176,6 +200,7 @@ function queryParams() {
   return qry;
 }
 
+// Function to animate the loading dots
 function loadingDots() {
   var dots = document.getElementById('loading');
   if(dots.innerHTML === '') {return true;}
