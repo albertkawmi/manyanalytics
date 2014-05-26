@@ -143,11 +143,14 @@ function storeRows(results) {
 
 function downloadCSV() {
 
-    var csvString = csvRows.join("%0A");
+    var csvString = csvRows.join("\n");
+
+    const MIME_TYPE = "text/csv;charset=utf-8";
+    var bb = new Blob([csvString], {type: MIME_TYPE});
 
     var a = document.getElementById('csv-link');
-    a.href     = 'data:text/csv;charset=utf-8,' + csvString;
-    a.target   = '_blank';
+    a.href     = window.URL.createObjectURL(bb);
+    //a.target   = '_blank';
     a.download = setFilename();
     document.getElementById('loading').style.visibility = 'hidden';
     document.getElementById('loading').innerHTML = '';
