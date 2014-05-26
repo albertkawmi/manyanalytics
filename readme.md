@@ -9,10 +9,9 @@ From personal experience, the main application I had for this is for getting lot
 
 I have an electronic engineering background and have hacked together this tool using Javascript and Google's 'hello_analytics_API' example as a starting point. There is still a lot of basic functionality needed to make this more usable and any contributions would be appreciated:
 
-* a way for authorised users to log out
-* A way to save query paramters for use later
 * A mechanism to browse and select which websites to run query on
 * A better user interface!
+* A way to save query paramters for use later
 * (Eventually) a way to run the same query over multiple date ranges - would be useful for reporting e.g. monthly aggregated data for the past year.
 
 Any other suggestions welcome: albert.kawmi@gmail.com
