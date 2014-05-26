@@ -4,21 +4,9 @@ var firstRow = true;
 var globalQuery = {};
 var queueIndex = 0;
 var queueLength = null;
-var www = true;
-var legacy = false;
-var internal = false;
-var other = false;
 
 // Execute this function when the 'Make API Call' button is clicked
 function makeApiCall() {
-  //Get checkbox values for which sites to include
-  www = document.getElementById("www").checked;
-  legacy = document.getElementById("legacy").checked;
-  internal = document.getElementById("internal").checked;
-  other = document.getElementById("other").checked;
-
-  if(www || legacy || internal || other) {
-
   // show loading text
   document.getElementById('loading').style.visibility = '';
   setInterval(loadingDots, 500);
@@ -29,9 +17,7 @@ function makeApiCall() {
   //get list of profiles
   console.log('Starting Request Process...');
   getProfilesList();
-  } else {
-    alert("Please include at least one set of websites.");
-  }
+  
 }
 
 function getProfilesList() {
@@ -56,11 +42,10 @@ function handleProfiles(results) {
       	for(var i=0; i<results.items.length; i++) {
           itemName = results.items[i].name;
 
-        	if(includeProfile(itemName)) 
-          {
+          //////////////////// This line sends out the queries ///////////////////////////
           queueLength ++;
         	setTimeout(queryCoreReportingApi, 100*i, results.items[i].id);
-          }
+          
       	}
 
     } else {
@@ -69,13 +54,6 @@ function handleProfiles(results) {
   } else {
     console.log('There was an error querying views (profiles): ' + results.message);
   }
-}
-
-function includeProfile(itemName) {
-  if(itemName.indexOf("www.") === 0) {return www;}
-  else if(itemName.indexOf("legacy") === 0) {return legacy;}
-  else if(itemName.indexOf("internal") === 0) {return internal;}
-  else {return other;}
 }
 
 function queryCoreReportingApi(profileId) {
