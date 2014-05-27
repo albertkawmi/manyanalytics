@@ -13,7 +13,8 @@ I have an electronic engineering background and have hacked together this tool u
 * A mechanism to browse and select which websites to run query on
 * A better user interface!
 * A way to save query paramters for use later
-* (Eventually) a way to run the same query over multiple date ranges - would be useful for reporting e.g. monthly aggregated data for the past year.
+* A way to run the same query over multiple date ranges - would be useful for reporting e.g. monthly aggregated data for the past year.
+* Email CSV files to the user (for use on mobile/tablet)
 
 Any other suggestions welcome: albert.kawmi@gmail.com
 
