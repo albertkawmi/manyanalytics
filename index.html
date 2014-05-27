@@ -16,7 +16,6 @@
     <form name="qname">
       <input type="text" name="query-name"> Query Name
     </form>
-  
 
     <!-- Main form to input query parameters -->
     <form name="qform">
@@ -36,10 +35,14 @@
       -->
     </form>
 
+    <form name="rform">
+      <p>Only include profiles (views) if name matches the following Regular Expression:</p>
+      <input type ="text" name="regex"> 
+    </form>
     <!-- The buttons for user control -->
     
     <button id="authorize-button" style="display:none">Authorize</button>
-    <button id="make-api-call-button" style="display:none">Get Visits</button>
+    <button id="make-api-call-button" style="display:none">Get Data</button>
     <span id="loading" style="display:none">Loading</span>
     <a id="csv-link" style="display:none">Download CSV</a>
     <p><a id="clear-form" href="#" onclick="clearForm()">Clear Form</a> | <a href="https://accounts.google.com/logout">Log out</a></p>

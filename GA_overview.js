@@ -59,14 +59,19 @@ function handleProfiles(results) {
     	queueLength = 0;
 
       // Use this in for loop to point to profile names
+      // regex is used to filter out profiles
       var itemName = "";
+      var regex = new RegExp(
+        (document.rform['regex'].value == "") ? ".*" : document.rform['regex'].value);
 
       	// Query the Core Reporting API
       	for(var i=0; i<results.items.length; i++) {
           itemName = results.items[i].name;
 
-          queueLength ++;
-        	setTimeout(queryCoreReportingApi, 100*i, results.items[i].id);
+          if(itemName.match(regex) == itemName){
+            queueLength ++;
+            setTimeout(queryCoreReportingApi, 100*i, results.items[i].id);
+          }
           
       	}
 
