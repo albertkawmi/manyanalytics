@@ -47,7 +47,7 @@
 			"file": "readme.md",
 			"settings":
 			{
-				"buffer_size": 1497,
+				"buffer_size": 1475,
 				"line_ending": "Windows"
 			}
 		},
@@ -151,7 +151,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -214,15 +214,15 @@
 					"file": "readme.md",
 					"settings":
 					{
-						"buffer_size": 1497,
+						"buffer_size": 1475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1497,
-								1497
+								1030,
+								1030
 							]
 						],
 						"settings":
