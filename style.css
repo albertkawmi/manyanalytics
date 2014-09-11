@@ -22,3 +22,5 @@ h1 {
 }
 
 input { width: 50%; }
+
+main { margin: 0 auto; width: auto; }
