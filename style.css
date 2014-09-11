@@ -23,4 +23,4 @@ h1 {
 
 input { width: 50%; }
 
-div { margin: 0 auto; width: 640px; }
+div { margin: 0 auto; max-width: 650px; }
