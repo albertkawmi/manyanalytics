@@ -14,8 +14,11 @@ div {
 	margin: 10px;
 	text-align: left;
 	vertical-align: top;
+	font-size: 14px;
 	}
 
 h1 {
 	color: rgb(93,49,24);
 }
+
+input { width: 50%; }
