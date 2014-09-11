@@ -5,7 +5,7 @@ body {
     background-position: center; 
 }
 
-div {
+section {
 	width: 250px;
 	background: rgba(255,255,255,0.65);
 	padding: 25px;
@@ -23,4 +23,4 @@ h1 {
 
 input { width: 50%; }
 
-main { margin: 0 auto; width: auto; }
+div { margin: 0 auto; width: auto; }
