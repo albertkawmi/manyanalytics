@@ -10,12 +10,15 @@ function handleClientLoad() {
 
 
 function checkAuth() {
+  console.log("Checking Auth...");
   gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
 }
 
 
 function handleAuthResult(authResult) {
-  if (authResult) {
+  console.log("Auth result = ");
+  console.dir(authResult);
+  if (authResult.status.signed_in) {
     // The user has authorized access
     // Load the Analytics Client. This function is defined in the next section.
     loadAnalyticsClient();
@@ -28,23 +31,22 @@ function handleAuthResult(authResult) {
 
 // Authorized user
 function handleAuthorized() {
-  var authorizeButton = document.getElementById('authorize-button');
-  var makeApiCallButton = document.getElementById('make-api-call-button');
+  var authorizeButton = document.getElementById('btn-authorize');
+  var makeApiCallButton = document.getElementById('btn-get-data');
 
-  makeApiCallButton.style.display = '';
+  makeApiCallButton.style.display = 'inline';
   authorizeButton.style.display = 'none';
-  authorizeButton.style.height = '0px';
   makeApiCallButton.onclick = makeApiCall;
 }
 
 
 // Unauthorized user
 function handleUnAuthorized() {
-  var authorizeButton = document.getElementById('authorize-button');
-  var makeApiCallButton = document.getElementById('make-api-call-button');
+  var authorizeButton = document.getElementById('btn-authorize');
+  var makeApiCallButton = document.getElementById('btn-get-data');
 
   makeApiCallButton.style.display = 'none';
-  authorizeButton.style.display = '';
+  authorizeButton.style.display = 'inline';
   authorizeButton.onclick = handleAuthClick;
 }
 

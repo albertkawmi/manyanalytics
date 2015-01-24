@@ -1,59 +1,67 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>multi GA: download Google Analytics data for multiple websites</title>
+    <title>many analytics: download Google Analytics data for multiple websites simultaneously</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div>
-    <section>
-    <h1>multi GA</h1>
-    <p>This tool allows you to run a Google Analytics (GA) query across all websites in your GA account. You can build the query parameters using <a href="http://ga-dev-tools.appspot.com/explorer/" target="_blank">Google's own query tool</a> then paste the parameters into this form to run the same query across all accounts.</p>
-    <p>Can you help improve this free tool? <a href="https://github.com/albertkawmi/multiga" target="_blank">multiGA is on GitHub</a>.</p>
-    <h6>Built by <a href="http://twitter.com/albertkawmi">@AlbertKawmi</a>. Background photo by <a href="https://www.flickr.com/photos/janospics/2851859649">JanOSpixeles</a> via Flickr Creative Commons. </h6>
+    <div class="container">
+    <header>
+      <h1><i class="fa fa-line-chart"></i><span>many</span>analytics</h1>
+    </header>
+
+    <main>
+    <section id="intro">
+      <p>This tool allows you to run a Google Analytics (GA) query across all websites in your GA account. You can build the query parameters using <a href="http://ga-dev-tools.appspot.com/explorer/" target="_blank">Google's own query tool</a> then paste the parameters into this form to run the same query across multiple websites.</p>
+      <p>Your results can be saved to a CSV file for use in Excel or other applications.</p>
     </section>
+
     <!-- Form to name the Query -->
     <section>
-    <form name="qname">
-      <input type="text" name="query-name"> Query Name
-    </form>
+      <h2>Give your query a name:</h2>
+      <form name="qname">
+        <input type="text" name="query-name" value="My Google Analytics Query"><label><i class="fa fa-caret-left"></i>Query Name</label>
+      </form>
 
-    <!-- Main form to input query parameters -->
-    <form name="qform">
-      <input type="text" name="start-date" value="2013-01-01"> Start Date<br />
-      <input type="text" name="end-date" value="2013-12-31"> End Date<br />
-      <input type="text" name="metrics" value="ga:visits"> Metrics<br />
-      <input type="text" name="dimensions" value="ga:medium"> Dimensions<br />
-      <input type="text" name="filters"> Filters<br />
-      <input type="text" name="segment"> Segment<br />
-      <input type="text" name="sort"> Sort<br />
-      <input type="text" name="max-results"> Max results<br />
-      <!-- Advanced or unnecessery API options 
-      <input type="text" name="start-index"> Start index<br />
-      <input type="text" name="sampling-level"> Sampling level<br />
-      <input type="text" name="output"> Output<br /> 
-      <input type="text" name="fields"> Fields<br />
-      -->
-    </form>
+      <!-- Main form to input query parameters -->
+      <h2>Enter the query parameters:</h2>
+      <form name="qform">
+        <input type="text" name="start-date" value="2013-01-01"><label><i class="fa fa-caret-left"></i>Start Date</label>
+        <input type="text" name="end-date" value="2013-12-31"><label><i class="fa fa-caret-left"></i>End Date</label>
+        <input type="text" name="metrics" value="ga:visits"><label><i class="fa fa-caret-left"></i>Metrics</label>
+        <input type="text" name="dimensions" value="ga:medium"><label><i class="fa fa-caret-left"></i>Dimensions</label>
+        <input type="text" name="filters"><label><i class="fa fa-caret-left"></i>Filters</label>
+        <input type="text" name="segment"><label><i class="fa fa-caret-left"></i>Segment</label>
+        <input type="text" name="sort"><label><i class="fa fa-caret-left"></i>Sort</label>
+        <input type="text" name="max-results"><label><i class="fa fa-caret-left"></i>Max results</label>
+      </form>
 
-    <form name="rform">
-      <p>Only include profiles (views) if name matches the following Regular Expression:</p>
-      <input type ="text" name="regex"> 
-    </form>
-    <!-- The buttons for user control -->
-    
-    <button id="authorize-button" style="display:none">Authorize</button>
-    <button id="make-api-call-button" style="display:none">Get Data</button>
-    <span id="loading" style="display:none">Loading</span>
-    <a id="csv-link" style="display:none">Download CSV</a>
-    <p><a id="clear-form" href="#" onclick="clearForm()">Clear Form</a> | <a href="https://accounts.google.com/logout">Log out</a></p>
-    <h6></h6>
+      <form name="rform">
+        <p>Only include profiles (views) if name matches the following Regular Expression:</p>
+        <input type ="text" name="regex"><label><i class="fa fa-caret-left"></i>RegEx</label>
+      </form>
+      <!-- The buttons for user control -->
+      
+      <section id="buttons">
+        <button id="btn-authorize">Authorize</button>
+        <button id="btn-get-data">Get Data</button>
+        <i id="loading" class="fa fa-spinner fa-2x"></i><!--<span id="loading" style="display:none">Loading</span>-->
+        <a id="csv-link" href="#"><i class="fa fa-download"></i>Save...</a>
+      </section>
+
     </section>
-  </div>
-
+  </main>
+  <footer>
+      <section id="clear-form">
+        <p><a id="clear-form" href="#" onclick="clearForm()"><i class="fa fa-times"></i>Clear Form</a><a href="https://accounts.google.com/logout"><i class="fa fa-sign-out"></i>Log out</a></p>
+      </section>
+  </footer>
+      <h6>Built by <a href="http://twitter.com/albertkawmi">@AlbertKawmi</a>. Background photo by <a href="https://www.flickr.com/photos/janospics/2851859649">JanOSpixeles</a> via Flickr Creative Commons. </h6>
+  </div><!-- end container -->
+    <!-- Load scripts -->
     <script src="GA_auth.js"></script>
-    <script src="GA_overview.js"></script>
-
+    <script src="many-analytics.js"></script>
     <!-- Load the Client Library. Use the onload parameter to specify a callback function -->
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
   </body>

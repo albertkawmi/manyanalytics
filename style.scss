@@ -1,0 +1,138 @@
+@import "scss/all";
+
+// Variables: colour theme
+$bg-color: white;
+$charcoal: #36454f;
+$red: #FE334D;
+$purple: #7A96A4;
+$blue: #1D6AF1;
+$green-pale: #FFD500;
+$green-lime: #13BC2F;
+
+// Base Styles 
+html {
+	font-family: Arial; 
+	color: $charcoal;
+}
+
+body {
+	background: url('google-analytics.jpg');
+	background-size: cover;
+}
+
+h1 { 
+	font-size: 2em; 
+	@include mq(medium) {
+		font-size: 2.5em;
+	}
+	@include mq(large) {
+		font-size: 2.5em;
+	}
+}
+
+h2 {
+	font-size: 1.5em;
+	color: $purple;
+	margin-top: 1em;
+}
+h6 { font-size: 0.5em; }
+
+p {
+	margin: 0.5em;
+}
+
+main, header, footer {
+	padding: 0.5em;
+}
+
+a, a:visited, a:active { color: $blue; }
+a:hover { text-decoration: none; }
+
+// Sections
+header h1 { color: $charcoal; }
+header h1 span { color: $blue; }
+
+footer { 
+	background: $green-pale; 
+	border-radius: 5px;
+	padding: 0.5em;
+	margin: 1em 0;
+}
+
+.container { 
+	max-width: 420px; 
+	margin: 0 auto;
+	background: $bg-color;
+	padding: 1em;
+}
+
+#intro { 
+	background: $green-pale;
+	color: black;
+	padding: 0.5em;
+	border-radius: 5px;
+}
+
+#spinner {
+	padding: 1em;
+}
+
+#clear-form {
+	text-align: center;
+	padding-right: 1em;
+}
+
+#clear-form a, #clear-form a:visited { padding-left: 1em; }
+
+.fa {
+	padding-right: 0.5em;
+}
+// Buttons
+button {
+	background: $blue;
+	color: white;
+	border: 0;
+	border-bottom: solid 3px $purple; 
+	border-radius: 5px;
+	padding: 1em;
+	width: 60%;
+	margin-right: 1em;
+}
+
+button:hover { border-bottom-color: $green-lime; }
+
+// Form Elements
+$form-width: 420px;
+
+form {
+	max-width: 420px;
+	margin: 1em auto;
+}
+
+label {
+	width: 40%; 
+	display: inline-block;
+	padding: 0.5em;
+	font-size: 0.8em;
+	color: white;
+	background: $purple;
+	border-radius: 0 5px 5px 0;
+}
+ 
+input[type=text] {
+	border: 0;
+	border-bottom: solid 2px $purple;
+	margin-bottom: 0.5em;
+	width: 60%;
+	color: $charcoal;
+	font-weight: lighter;
+}
+
+input[type=text]:focus {
+	border-bottom-color: $green-lime;
+}
+
+// User Interface
+#btn-authorize, #btn-get-data, #loading, #csv-link {
+	display: none;
+}
