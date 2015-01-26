@@ -4564,7 +4564,7 @@ button {
   background: #1D6AF1;
   color: white;
   border: 0;
-  border-bottom: solid 3px #7A96A4;
+  border-bottom: solid 4px #7A96A4;
   border-radius: 5px;
   padding: 1em;
   width: 100%;
@@ -4575,7 +4575,7 @@ button a {
   text-decoration: none; }
 
 button:hover {
-  border-bottom-color: #13BC2F; }
+  border-bottom-color: #FFD500; }
 
 form {
   max-width: 420px;
@@ -4608,7 +4608,12 @@ div#loading {
   text-align: center;
   color: #7A96A4;
   border-radius: 5px;
-  background: #f0f0f0; }
+  background: #f0f0f0;
+  margin-top: 1em; }
+
+button#save {
+  margin-top: 1em;
+  background: #13BC2F; }
 
 #spinner {
   padding: 0;
