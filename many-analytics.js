@@ -1,9 +1,3 @@
-// Global variables
-var csvRows = [];
-var firstRow = false;
-var globalQuery = {};
-var queueIndex = 0;
-var queueLength = null;
 //var loader = null;
 
 // Clear the form fields
@@ -19,12 +13,18 @@ function clearegexFilter() {
 function makeApiCall() {
 
   //reset all globals for when we run function again
-  csvRows = [];
-  firstRow = true;
+// Global variables
+var csvRows = [];
+var firstRow = false;
+var globalQuery = {};
+var queueIndex = 0;
+var queueLength = null;
+ /* csvRows = [];
+  firstRow = false;
   globalQuery = {};
   queueIndex = 0;
   queueLength = null;
-  //loader = null;
+  //loader = null;*/
 
   // hide download link and show loading animation
   document.getElementById('csv-link').style.display = 'none';
