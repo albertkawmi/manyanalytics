@@ -8,7 +8,7 @@ var queueIndex = 0;
 var queueLength = null;
 
 // Clear the form fields
-function clearegexFilter() {
+function clearForm() {
   document.queryName.reset();
 
   for(var el in document.queryParams.elements){
