@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="container">
     <header>
       <h1><i class="fa fa-line-chart"></i><span>many</span>analytics</h1>
     </header>
 
+    <div class="container">
     <main>
     <section id="intro">
       <p>This tool allows you to run a Google Analytics (GA) query across all websites in your GA account. You can build the query parameters using <a href="http://ga-dev-tools.appspot.com/explorer/" target="_blank">Google's own query tool</a> then paste the parameters into this form to run the same query across multiple websites.</p>
       <p>Your results can be saved to a CSV file for use in Excel or other applications.</p>
     </section>
-
+    <a name="clear-form">
     <!-- Form to name the Query -->
     <section>
-      <h2>Give your query a name:</h2>
+      </a><h2>Give your query a name:</h2>
       <form name="queryName">
         <label>Query Name</label><input type="text" name="query-name" value="My Query">
       </form>
@@ -27,8 +27,8 @@
       <!-- Main form to input query parameters -->
       <h2>Enter the query parameters:</h2>
       <form name="queryParams">
-        <label></i>Start Date</label><input type="text" name="start-date" value="2013-01-01">
-        <label>End Date</label><input type="text" name="end-date" value="2013-12-31">
+        <label></i>Start Date</label><input type="text" name="start-date" value="2014-01-01">
+        <label>End Date</label><input type="text" name="end-date" value="2014-12-31">
         <label>Metrics</label><input type="text" name="metrics" value="ga:visits">
         <label>Dimensions</label><input type="text" name="dimensions" value="ga:medium">
         <label>Filters</label><input type="text" name="filters">
@@ -53,11 +53,14 @@
   </main>
   <footer>
       <section id="clear-form">
-        <p><a id="clear-form" href="#" onclick="clearForm()"><i class="fa fa-times"></i>Clear Form</a><a href="https://accounts.google.com/logout"><i class="fa fa-sign-out"></i>Log out</a></p>
+        <p><a id="clear-form" href="#clear-form" onclick="clearForm()"><i class="fa fa-times"></i>Clear Form</a><a href="https://accounts.google.com/logout"><i class="fa fa-sign-out"></i>Log out</a></p>
       </section>
   </footer>
-      <h6>Built by <a href="http://twitter.com/albertkawmi">@AlbertKawmi</a>. Background photo by <a href="https://www.flickr.com/photos/janospics/2851859649">JanOSpixeles</a> via Flickr Creative Commons. </h6>
   </div><!-- end container -->
+  <div class="photo-credit">
+    <h6 class="centered">Built by <a href="http://twitter.com/albertkawmi">@AlbertKawmi</a> | <a href="https://github.com/albertkawmi/manyanalytics">GitHub</a>.</h6>
+    <h6>Background photo by <a href="https://www.flickr.com/photos/janospics/2851859649">JanosPixels</a>.</h6>
+  </div>
     <!-- Load scripts -->
     <script src="GA_auth.js"></script>
     <script src="many-analytics.js"></script>

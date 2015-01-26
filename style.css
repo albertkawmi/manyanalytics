@@ -4493,13 +4493,14 @@ h1 {
   text-shadow: 2px 2px #FFD500; }
   @media only screen and (min-width: 421px) and (max-width: 768px) {
     h1 {
-      font-size: 2.5em; } }
+      font-size: 3em; } }
   @media only screen and (min-width: 769px) {
     h1 {
-      font-size: 2.5em; } }
+      font-size: 3em; } }
 
 header h1 {
-  color: #13BC2F; }
+  color: #13BC2F;
+  text-align: center; }
 
 header h1 span {
   color: #1D6AF1; }
@@ -4516,6 +4517,9 @@ h2 {
 h6 {
   font-size: 0.8em; }
 
+.centered {
+  text-align: center; }
+
 p {
   margin: 0.5em 0; }
 
@@ -4528,6 +4532,13 @@ a, a:visited, a:active {
 a:hover {
   text-decoration: none; }
 
+header {
+  margin: 0 auto;
+  margin-top: 2em;
+  background: rgba(255, 255, 255, 0.7);
+  max-width: 420px;
+  border-radius: 5px 5px 0 0; }
+
 footer {
   background: #f0f0f0;
   border-radius: 5px;
@@ -4536,16 +4547,9 @@ footer {
 
 .container {
   max-width: 420px;
-  margin: 2em auto;
+  margin: 0 auto;
   background: white;
-  padding: 1em;
-  border-radius: 5px; }
-
-#intro {
-  background: #f0f0f0;
-  color: black;
-  padding: 0.5em 1em;
-  border-radius: 5px; }
+  padding: 1em; }
 
 #spinner {
   padding: 1em; }
@@ -4559,6 +4563,15 @@ footer {
 
 .fa {
   padding-right: 0.5em; }
+
+.photo-credit {
+  max-width: 420px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5em;
+  border-radius: 0 0 5px 5px; }
 
 button {
   background: #1D6AF1;

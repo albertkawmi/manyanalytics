@@ -203,7 +203,10 @@ function clearForm() {
   document.queryName.reset();
   document.regexFilter.reset();
 
-  for(var el in document.queryParams.elements){
-    if(queryParams[el]) { document.queryParams[el].value = ""; }
-    }
+  var form = document.queryParams.elements;
+
+  for(var element in form){
+    //console.dir(document.queryParams[el]);
+    form[element].value = "";
+  }
 }
