@@ -1,17 +1,17 @@
 // Global variables
 var csvRows = [];
-var firstRow = true;
+var firstRow = false;
 var globalQuery = {};
 var queueIndex = 0;
 var queueLength = null;
-var loader = null;
+//var loader = null;
 
 // Clear the form fields
-function clearForm() {
-  document.qname.reset();
+function clearegexFilter() {
+  document.queryName.reset();
 
-  for(var el in document.qform.elements){
-    document.qform[el].value = "";
+  for(var el in document.queryParams.elements){
+    document.queryParams[el].value = "";
     }
 }
 
@@ -24,14 +24,14 @@ function makeApiCall() {
   globalQuery = {};
   queueIndex = 0;
   queueLength = null;
-  loader = null;
+  //loader = null;
 
   // hide download link and show loading animation
   document.getElementById('csv-link').style.display = 'none';
-  //document.getElementById('loading').innerHTML = 'Loading';
+  document.getElementById('loading').style.display = 'block';
 
   // show loading text
-  document.getElementById('loading').style.display = 'inline';
+  //document.getElementById('loading').style.display = 'block';
   //loader = setInterval(loadingDots, 500);
 
   // save form data into global query object
@@ -62,7 +62,7 @@ function handleProfiles(results) {
       // regex is used to filter out profiles
       var itemName = "";
       var regex = new RegExp(
-        (document.rform['regex'].value == "") ? ".*" : document.rform['regex'].value);
+        (document.regexFilter['regex'].value == "") ? ".*" : document.regexFilter['regex'].value);
 
       	// Query the Core Reporting API
       	for(var i=0; i<results.items.length; i++) {
@@ -115,7 +115,7 @@ function printResults(results) {
 
 function storeRows(results) {
   // Store first row if not already set
-  if(firstRow) {
+  if(!firstRow) {
     var headers = [];
 
     for(var col in results.columnHeaders) { headers.push(results.columnHeaders[col].name); }
@@ -124,7 +124,7 @@ function storeRows(results) {
 
     csvRows.push(headers.join(','));
 
-    firstRow = false;
+    firstRow = true; // first row has been set
   }
 
   // Set metaData as array of Profile ID, Account ID and Profile Name
@@ -156,13 +156,13 @@ function downloadCSV() {
     a.href = window.URL.createObjectURL(blob);
 
     // Set the filename
-    a.download = "GA_" + document.qname["query-name"].value + "_at_" + Date() + ".csv";
+    a.download = "GA_" + document.queryName["query-name"].value + "_at_" + Date() + ".csv";
 
     // Hide the 'loading...' animation and show the download link
     document.getElementById('loading').style.display = 'none';
     //document.getElementById('loading').innerHTML = '';
-    clearInterval(loader);
-    a.style.display = 'inline';
+    //clearInterval(loader);
+    a.style.display = 'block';
 }
 
 // unused (for console debugging)
@@ -192,14 +192,14 @@ function logResults(results) {
 function queryParams() {
 
   // Read all elements in the form into an array
-  var qform = document.qform.elements;
+  var queryParams = document.queryParams.elements;
 
   // Create the query object
   var qry = {};
 
   // loop the form elements and add to query object
-  for(var el in qform){
-        if(qform[el].name && qform[el].value) { qry[qform[el].name] = qform[el].value; }
+  for(var el in queryParams){
+        if(queryParams[el].name && queryParams[el].value) { qry[queryParams[el].name] = queryParams[el].value; }
     }
 
   return qry;

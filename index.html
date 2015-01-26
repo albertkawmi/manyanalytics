@@ -20,34 +20,33 @@
     <!-- Form to name the Query -->
     <section>
       <h2>Give your query a name:</h2>
-      <form name="qname">
-        <input type="text" name="query-name" value="My Google Analytics Query"><label><i class="fa fa-caret-left"></i>Query Name</label>
+      <form name="queryName">
+        <label>Query Name</label><input type="text" name="query-name" value="My Query">
       </form>
 
       <!-- Main form to input query parameters -->
       <h2>Enter the query parameters:</h2>
-      <form name="qform">
-        <input type="text" name="start-date" value="2013-01-01"><label><i class="fa fa-caret-left"></i>Start Date</label>
-        <input type="text" name="end-date" value="2013-12-31"><label><i class="fa fa-caret-left"></i>End Date</label>
-        <input type="text" name="metrics" value="ga:visits"><label><i class="fa fa-caret-left"></i>Metrics</label>
-        <input type="text" name="dimensions" value="ga:medium"><label><i class="fa fa-caret-left"></i>Dimensions</label>
-        <input type="text" name="filters"><label><i class="fa fa-caret-left"></i>Filters</label>
-        <input type="text" name="segment"><label><i class="fa fa-caret-left"></i>Segment</label>
-        <input type="text" name="sort"><label><i class="fa fa-caret-left"></i>Sort</label>
-        <input type="text" name="max-results"><label><i class="fa fa-caret-left"></i>Max results</label>
+      <form name="queryParams">
+        <label></i>Start Date</label><input type="text" name="start-date" value="2013-01-01">
+        <label>End Date</label><input type="text" name="end-date" value="2013-12-31">
+        <label>Metrics</label><input type="text" name="metrics" value="ga:visits">
+        <label>Dimensions</label><input type="text" name="dimensions" value="ga:medium">
+        <label>Filters</label><input type="text" name="filters">
+        <label>Segment</label><input type="text" name="segment">
+        <label>Sort</label><input type="text" name="sort">
+        <label>Max results</label><input type="text" name="max-results">
       </form>
 
-      <form name="rform">
+      <form name="regexFilter">
         <p>Only include profiles (views) if name matches the following Regular Expression:</p>
-        <input type ="text" name="regex"><label><i class="fa fa-caret-left"></i>RegEx</label>
+        <label>RegEx</label><input type ="text" name="regex">
       </form>
-      <!-- The buttons for user control -->
       
       <section id="buttons">
         <button id="btn-authorize">Authorize</button>
         <button id="btn-get-data">Get Data</button>
-        <i id="loading" class="fa fa-spinner fa-2x"></i><!--<span id="loading" style="display:none">Loading</span>-->
-        <a id="csv-link" href="#"><i class="fa fa-download"></i>Save...</a>
+        <div id="loading"><i id="spinner" class="fa fa-circle-o-notch fa-2x fa-spin"></i></div>
+        <a id="csv-link" href="#"><button id="save"><i class="fa fa-download"></i>Download .csv file</button></a>
       </section>
 
     </section>
