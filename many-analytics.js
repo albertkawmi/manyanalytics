@@ -7,14 +7,6 @@ var globalQuery = {};
 var queueIndex = 0;
 var queueLength = null;
 
-// Clear the form fields
-function clearForm() {
-  document.queryName.reset();
-
-  for(var el in document.queryParams.elements){
-    document.queryParams[el].value = "";
-    }
-}
 
 // Execute this function when the 'Make API Call' button is clicked
 function makeApiCall() {
@@ -44,19 +36,19 @@ function makeApiCall() {
 }
 
 function getProfilesList() {
-	console.log('Querying Views (Profiles).');
+  console.log('Querying Views (Profiles).');
 
-  	// Get a list of all Views (Profiles) for the first Web Property of the first Account
-  	gapi.client.analytics.management.profiles.list({
+    // Get a list of all Views (Profiles) for the first Web Property of the first Account
+    gapi.client.analytics.management.profiles.list({
       'accountId': '~all',
       'webPropertyId': '~all'
-  	}).execute(handleProfiles);
+    }).execute(handleProfiles);
 }
 
 function handleProfiles(results) {
   if (!results.code) {
     if (results && results.items && results.items.length) {
-    	queueLength = 0;
+      queueLength = 0;
 
       // Use this in for loop to point to profile names
       // regex is used to filter out profiles
@@ -64,8 +56,8 @@ function handleProfiles(results) {
       var regex = new RegExp(
         (document.regexFilter['regex'].value == "") ? ".*" : document.regexFilter['regex'].value);
 
-      	// Query the Core Reporting API
-      	for(var i=0; i<results.items.length; i++) {
+        // Query the Core Reporting API
+        for(var i=0; i<results.items.length; i++) {
           itemName = results.items[i].name;
 
           if(itemName.match(regex) == itemName){
@@ -73,7 +65,7 @@ function handleProfiles(results) {
             setTimeout(queryCoreReportingApi, 100*i, results.items[i].id);
           }
           
-      	}
+        }
 
     } else {
       console.log('No views (profiles) found for this user.');
@@ -81,6 +73,7 @@ function handleProfiles(results) {
   } else {
     console.log('There was an error querying views (profiles): ' + results.message);
   }
+
 }
 
 function queryCoreReportingApi(profileId) {
@@ -205,10 +198,12 @@ function queryParams() {
   return qry;
 }
 
-// Function to animate the loading dots
-function loadingDots() {
-  var dots = document.getElementById('loading');
-  if(dots.innerHTML === '') {return true;}
-  dots.innerHTML += ".";
-  if(dots.innerHTML === "Loading....") {dots.innerHTML = "Loading";}
+// Clear the form fields
+function clearForm() {
+  document.queryName.reset();
+  document.regexFilter.reset();
+
+  for(var el in document.queryParams.elements){
+    if(queryParams[el]) { document.queryParams[el].value = ""; }
+    }
 }
